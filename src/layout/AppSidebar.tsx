@@ -348,7 +348,7 @@ const AppSidebar: React.FC = () => {
                 }`}
               >
                 {isExpanded || isHovered || isMobileOpen ? (
-                  "Menu"
+                  "견적 내기"
                 ) : (
                   <HorizontaLDots />
                 )}
@@ -365,7 +365,7 @@ const AppSidebar: React.FC = () => {
                 }`}
               >
                 {isExpanded || isHovered || isMobileOpen ? (
-                  "Others"
+                  "기사 찾기"
                 ) : (
                   <HorizontaLDots />
                 )}
