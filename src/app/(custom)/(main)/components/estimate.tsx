@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import ComponentCard from "@/components/common/ComponentCard";
-import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import Alert from "@/components/ui/alert/Alert";
 import AnimatedPrice from './animatedprice'
 import { Metadata } from "next";
 import React from "react";
