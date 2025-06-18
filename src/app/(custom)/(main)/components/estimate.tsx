@@ -157,7 +157,7 @@ export default function Estimate() {
                       data-has-listeners="true"
                     />
                     <span className="text-sm">
-                      {option.name} ({option.price.toLocaleString()}원)
+                      {option.name}
                     </span>
                   </label>
                 );
