@@ -85,7 +85,11 @@ export default function Estimate() {
   const handleCheckboxToggle = (name: string) => {
     setSelections((prev) => {
       const updated = new Set(prev[3])
-      updated.has(name) ? updated.delete(name) : updated.add(name)
+      if (updated.has(name)) {
+        updated.delete(name)
+      } else {
+        updated.add(name)
+      }
       return { ...prev, 3: updated }
     })
   }
