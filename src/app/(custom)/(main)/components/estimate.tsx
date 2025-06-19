@@ -66,6 +66,10 @@ export default function Estimate() {
 
   const [stepIndex, setStepIndex] = useState(0)
 
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [address, setAddress] = useState('');
+
   type StepSelections = {
     [key: number]: string | Set<string> | undefined
   }
@@ -105,6 +109,10 @@ export default function Estimate() {
       return sum + price
     }, 0)
 
+  function callbackOrder(): React.MouseEventHandler<HTMLButtonElement> | undefined {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <div>
 
@@ -112,7 +120,7 @@ export default function Estimate() {
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="에어컨 수리 견적 보기">
 
-          <div className="flex justify-center mb-4 space-x-2">
+          <div className="flex justify-center mb- space-x-2">
             {STEPS.map((step, idx) => (
               <button
                 key={step.title}
@@ -181,7 +189,7 @@ export default function Estimate() {
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {(selections[2] as string) || '0000'}
               </span>{' '}
-              연식의 에어컨의
+              연식 에어컨의
               <br />
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {selections[3] instanceof Set && selections[3].size > 0
@@ -196,9 +204,47 @@ export default function Estimate() {
 
           {selections[3] instanceof Set && selections[3].size > 0 && (
             <div className="mt-6 text-center">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                수리기사의 콜백을 받으시겠어요?
-              </button>
+              {!showContactForm ? (
+                <button
+                  onClick={() => setShowContactForm(true)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+                >
+                  수리기사의 콜백을 받으시겠어요?
+                </button>
+              ) : (
+                <form
+                  className="space-y-4 max-w-md mx-auto"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log('전화번호:', phoneNumber);
+                    console.log('주소:', address);
+                    alert('콜백 요청이 접수되었습니다!');
+                  }}
+                >
+                  <input
+                    type="tel"
+                    placeholder="전화번호를 입력하세요"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="w-full px-4 py-2 border rounded"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="거주지역을 선택해 주세요."
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="w-full px-4 py-2 border rounded"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+                  >
+                    콜백받기
+                  </button>
+                </form>
+              )}
             </div>
           )}
 
