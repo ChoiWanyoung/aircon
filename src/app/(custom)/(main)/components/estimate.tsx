@@ -109,9 +109,6 @@ export default function Estimate() {
       return sum + price
     }, 0)
 
-  function callbackOrder(): React.MouseEventHandler<HTMLButtonElement> | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div>
