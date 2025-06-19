@@ -177,16 +177,16 @@ export default function Estimate() {
             <p className="mb-1 text-gray-600 leading-relaxed">
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {(selections[0] as string) || '0000'}
-              </span>{' '}
-              브랜드의{' '}
+              </span>{''}
+              브랜드{''}
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {(selections[1] as string) || '000'}
-              </span>{' '}
+              </span>{''}
               타입{' '}
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {(selections[2] as string) || '0000'}
-              </span>{' '}
-              연식 에어컨의
+              </span>{''}
+              식 에어컨의
               <br />
               <span className="bg-blue-100 text-blue-800 px-1.5 rounded">
                 {selections[3] instanceof Set && selections[3].size > 0

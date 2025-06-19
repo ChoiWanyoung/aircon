@@ -33,7 +33,7 @@ export default function AnimatedPrice({ value, duration = 1500 }: AnimatedPriceP
   }, [value, duration])
 
   return (
-    <span className="text-3xl font-bold text-blue-600 inline-block transition-all duration-300">
+    <span className="text-2xl font-bold text-blue-600 inline-block transition-all duration-300">
       {displayValue.toLocaleString()}원
     </span>
   )
